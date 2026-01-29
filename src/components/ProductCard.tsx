@@ -1,55 +1,105 @@
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useCart } from '@/context/CartContext';
 
 interface Product {
     id: string;
     name: string;
+    slug?: string;
     benefit: string;
-    price: string;
+    price: string | number;
     image?: string;
+    imageUrl?: string | null;
     rating?: number;
     reviews?: number;
+    badge?: string;
+}
+
+// Parse price string to number (e.g., "49,99 €" -> 49.99)
+function parsePrice(priceStr: string): number {
+    return parseFloat(priceStr.replace(',', '.').replace(/[^\d.]/g, ''));
 }
 
 export function ProductCard({ product }: { product: Product }) {
-    return (
-        <div className="group relative bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all duration-300">
-            {/* Image Placeholder */}
-            <div className="aspect-square bg-gray-100 dark:bg-gray-800 w-full relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center text-gray-300">
-                    {/* Placeholder for real image */}
-                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                </div>
-                {/* Badge */}
-                <div className="absolute top-3 left-3 bg-white/90 backdrop-blur text-xs font-bold px-2 py-1 rounded-md shadow-sm">
-                    Bestseller
-                </div>
-            </div>
+    const { addItem } = useCart();
 
-            <div className="p-5">
-                <div className="flex justify-between items-start mb-2">
-                    <div>
-                        <h3 className="font-bold text-lg text-gray-900 dark:text-white group-hover:text-purple-600 transition-colors">
+    const handleAddToCart = () => {
+        const numericPrice = typeof product.price === 'string'
+            ? parsePrice(product.price)
+            : product.price;
+
+        addItem({
+            id: product.id,
+            name: product.name,
+            slug: product.slug || product.name.toLowerCase().replace(/\s+/g, '-'),
+            price: numericPrice,
+            imageUrl: product.imageUrl || product.image,
+        });
+    };
+
+    const productSlug = product.slug || product.name.toLowerCase().replace(/\s+/g, '-');
+    const displayPrice = typeof product.price === 'number'
+        ? `${product.price.toFixed(2).replace('.', ',')} €`
+        : product.price;
+
+    return (
+        <div className="group relative bg-white overflow-hidden border border-gray-100 hover:border-black transition-all duration-500 rounded-none">
+            {/* Image */}
+            <Link href={`/products/${productSlug}`}>
+                <div className="aspect-[4/5] bg-[#f9f9f9] w-full relative overflow-hidden cursor-pointer">
+                    {/* Badge */}
+                    {product.badge && (
+                        <div className="absolute top-4 left-4 z-10">
+                            <span className="bg-black text-white text-[10px] font-black px-3 py-1 uppercase tracking-widest">
+                                {product.badge}
+                            </span>
+                        </div>
+                    )}
+
+                    {product.imageUrl ? (
+                        <Image
+                            src={product.imageUrl}
+                            alt={product.name}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                    ) : (
+                        <div className="absolute inset-0 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-700 opacity-20">
+                            🍬
+                        </div>
+                    )}
+
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+            </Link>
+
+            <div className="p-6">
+                <div className="mb-6">
+                    <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2">
+                        {product.benefit}
+                    </p>
+                    <Link href={`/products/${productSlug}`}>
+                        <h3 className="font-black text-xl text-black leading-tight uppercase tracking-tight group-hover:text-black/70 transition-colors cursor-pointer">
                             {product.name}
                         </h3>
-                        <p className="text-sm text-gray-500 font-medium">
-                            {product.benefit}
-                        </p>
-                    </div>
-                    <div className="text-right">
-                        <span className="block font-bold text-gray-900 dark:text-white">{product.price}</span>
-                    </div>
+                    </Link>
                 </div>
 
-                {/* Rating */}
-                <div className="flex items-center gap-1 mb-4 text-xs text-yellow-500">
-                    {'★'.repeat(5)} <span className="text-gray-400 ml-1">({product.reviews})</span>
+                {/* Price & CTA */}
+                <div className="flex items-center justify-between pt-4 border-t border-gray-50">
+                    <span className="font-black text-black text-lg tracking-tight">{displayPrice}</span>
+                    <button
+                        onClick={handleAddToCart}
+                        className="bg-white text-black border-2 border-black font-black px-6 py-2.5 rounded-full hover:bg-black hover:text-white transition-all duration-300 text-[10px] uppercase tracking-widest"
+                    >
+                        Hinzufügen
+                    </button>
                 </div>
-
-                {/* CTA */}
-                <button className="w-full bg-gray-100 dark:bg-gray-800 hover:bg-purple-600 hover:text-white dark:hover:bg-purple-600 text-gray-900 dark:text-white font-semibold py-3 rounded-xl transition-all flex items-center justify-center gap-2">
-                    <span>In den Warenkorb</span>
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                </button>
             </div>
         </div>
     );
