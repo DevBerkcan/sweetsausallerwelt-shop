@@ -1,0 +1,54 @@
+{
+    "HomePage": {
+        "hero": {
+            "trust": "Über 10.000 glückliche Naschkatzen",
+            "headline": "Schluss mit langweiligen Snacks.",
+            "subheadline": "Erlebe Süßigkeiten neu.",
+            "description": "Handverlesene Premium-Sweets, die nicht nur gut schmecken, sondern dich in eine andere Welt entführen. Morgen bei dir.",
+            "cta": "Jetzt entdecken",
+            "rating": "4.9/5 auf Trustpilot",
+            "shipping": "Blitzversand"
+        },
+        "trustBadges": {
+            "brands": "Bekannte Marken",
+            "brandsSub": "Nur das Original",
+            "fresh": "Frische-Garantie",
+            "freshSub": "Jeden Tag neu",
+            "payment": "Sicher bezahlen",
+            "paymentSub": "PayPal, Klarna & Co",
+            "shipping": "Gratis Versand",
+            "shippingSub": "Ab 50€ Einkauf"
+        },
+        "usp": {
+            "title": "Warum Naschkatzen uns lieben",
+            "subtitle": "Keine 08/15 Süßigkeiten. Wir kuratieren Momente, die bleiben.",
+            "qualityTitle": "Handverlesene Qualität",
+            "qualityDesc": "Nichts vom Fließband. Jedes Stück wird auf Geschmack und Frische geprüft.",
+            "shippingTitle": "Blitzschneller Versand",
+            "shippingDesc": "Heute bestellt, morgen genießen. Weil Heißhunger nicht warten kann.",
+            "giftTitle": "Freude schenken",
+            "giftDesc": "Perfekt verpackt als Geschenk. Für dich selbst oder deine Liebsten."
+        },
+        "bestseller": {
+            "title": "Unsere Bestseller",
+            "subtitle": "Das kaufen andere Kunden am liebsten",
+            "viewAll": "Alle ansehen"
+        },
+        "trustSection": {
+            "shipping": "Blitzversand",
+            "shippingSub": "Gratis ab 40€ Bestellwert",
+            "support": "24/7 Support",
+            "supportSub": "Wir sind immer für dich da",
+            "selection": "Weltweit Naschen",
+            "selectionSub": "Exklusive Auswahl & Trends",
+            "return": "Sichere Retoure",
+            "returnSub": "14 Tage Rückgaberecht"
+        }
+    },
+    "Navigation": {
+        "home": "Startseite",
+        "shop": "Shop",
+        "about": "Über uns",
+        "cart": "Warenkorb"
+    }
+}

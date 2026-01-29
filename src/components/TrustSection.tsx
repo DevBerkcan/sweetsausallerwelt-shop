@@ -1,29 +1,32 @@
 import React from 'react';
+import { getTranslations } from 'next-intl/server';
 
-const highlights = [
-    {
-        title: 'Blitzversand',
-        description: 'Gratis ab 40€ Bestellwert',
-        icon: '🚚'
-    },
-    {
-        title: '24/7 Support',
-        description: 'Wir sind immer für dich da',
-        icon: '💬'
-    },
-    {
-        title: 'Weltweit Naschen',
-        description: 'Exklusive Auswahl & Trends',
-        icon: '🌍'
-    },
-    {
-        title: 'Sichere Retoure',
-        description: '14 Tage Rückgaberecht',
-        icon: '🔄'
-    }
-];
+export async function TrustSection() {
+    const t = await getTranslations('HomePage.trustSection');
 
-export function TrustSection() {
+    const highlights = [
+        {
+            title: t('shipping'),
+            description: t('shippingSub'),
+            icon: '🚚'
+        },
+        {
+            title: t('support'),
+            description: t('supportSub'),
+            icon: '💬'
+        },
+        {
+            title: t('selection'),
+            description: t('selectionSub'),
+            icon: '🌍'
+        },
+        {
+            title: t('return'),
+            description: t('returnSub'),
+            icon: '🔄'
+        }
+    ];
+
     return (
         <section className="w-full py-16 border-y border-gray-100 bg-white">
             <div className="container mx-auto px-4">

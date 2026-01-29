@@ -1,14 +1,17 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
 import { ShoppingBag, Search, Menu } from 'lucide-react';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { useTranslations } from 'next-intl';
 
 export function Header() {
   const { toggleCart, totalItems } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
+  const t = useTranslations('Navigation');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,8 +24,8 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? 'bg-white/70 backdrop-blur-xl border-b border-gray-100 py-3'
-          : 'bg-transparent py-5'
+        ? 'bg-white/70 backdrop-blur-xl border-b border-gray-100 py-3'
+        : 'bg-transparent py-5'
         }`}
     >
       <div className="container mx-auto px-6">
@@ -38,13 +41,13 @@ export function Header() {
               href="/bestseller"
               className="text-[10px] font-black uppercase tracking-[0.25em] text-black/40 hover:text-black transition-all duration-300"
             >
-              Bestseller
+              {t('shop')}
             </Link>
             <Link
               href="/boxen"
               className="text-[10px] font-black uppercase tracking-[0.25em] text-black/40 hover:text-black transition-all duration-300"
             >
-              Boxen
+              Boxes
             </Link>
           </nav>
 
@@ -68,7 +71,7 @@ export function Header() {
                 href="/kalender"
                 className="text-[10px] font-black uppercase tracking-[0.25em] text-black/40 hover:text-black transition-all duration-300"
               >
-                Kalender
+                Calendar
               </Link>
               <Link
                 href="/sweets"
@@ -77,6 +80,8 @@ export function Header() {
                 Sweets
               </Link>
             </nav>
+
+            <LanguageSwitcher />
 
             <button className="p-2 hover:bg-black/5 rounded-full transition-colors hidden md:block">
               <Search className="w-5 h-5 text-black/80" strokeWidth={1.5} />

@@ -1,0 +1,54 @@
+{
+    "HomePage": {
+        "hero": {
+            "trust": "Plus de 10 000 gourmands heureux",
+            "headline": "Fini les snacks ennuyeux.",
+            "subheadline": "Découvrez les bonbons autrement.",
+            "description": "Des douceurs premium sélectionnées à la main qui ne se contentent pas d'être bonnes, mais vous transportent dans un autre monde. Chez vous dès demain.",
+            "cta": "Découvrir maintenant",
+            "rating": "4.9/5 sur Trustpilot",
+            "shipping": "Livraison express"
+        },
+        "trustBadges": {
+            "brands": "Marques connues",
+            "brandsSub": "Uniquement l'original",
+            "fresh": "Garantie fraîcheur",
+            "freshSub": "Nouveautés chaque jour",
+            "payment": "Paiement sécurisé",
+            "paymentSub": "PayPal, Klarna & Co",
+            "shipping": "Livraison gratuite",
+            "shippingSub": "Dès 50€ d'achat"
+        },
+        "usp": {
+            "title": "Pourquoi les gourmands nous adorent",
+            "subtitle": "Pas de bonbons ordinaires. Nous créons des moments inoubliables.",
+            "qualityTitle": "Qualité sélectionnée",
+            "qualityDesc": "Rien d'industriel. Chaque pièce est vérifiée pour son goût et sa fraîcheur.",
+            "shippingTitle": "Livraison ultra-rapide",
+            "shippingDesc": "Commandé aujourd'hui, dégusté demain. Parce que l'envie n'attend pas.",
+            "giftTitle": "Offrir du bonheur",
+            "giftDesc": "Parfaitement emballé pour offrir. Pour vous ou vos proches."
+        },
+        "bestseller": {
+            "title": "Nos meilleures ventes",
+            "subtitle": "Ce que nos clients préfèrent",
+            "viewAll": "Tout voir"
+        },
+        "trustSection": {
+            "shipping": "Livraison Express",
+            "shippingSub": "Gratuit dès 40€ d'achat",
+            "support": "Support 24/7",
+            "supportSub": "Toujours là pour vous",
+            "selection": "Douceurs Mondiales",
+            "selectionSub": "Sélection Exclusive & Trends",
+            "return": "Retour Sécurisé",
+            "returnSub": "14 Jours pour changer d'avis"
+        }
+    },
+    "Navigation": {
+        "home": "Accueil",
+        "shop": "Boutique",
+        "about": "À propos",
+        "cart": "Panier"
+    }
+}

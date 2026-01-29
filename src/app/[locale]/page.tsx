@@ -3,7 +3,7 @@ import { PhilosophySection } from "@/components/PhilosophySection";
 import { TrustSection } from "@/components/TrustSection";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductDto } from "@/lib/api/types";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 
 async function getProducts(): Promise<ProductDto[]> {
@@ -50,7 +50,10 @@ function mapProductToDisplay(product: ProductDto) {
 
 import { products } from "@/lib/data/products";
 
-export default function Home() {
+import { getTranslations } from "next-intl/server";
+
+export default async function Home() {
+  const t = await getTranslations('HomePage');
   const bestsellers = products.filter(p => p.badge === 'Bestseller' || p.badge === 'LIMITED').slice(0, 4);
   const boxes = products.filter(p => p.category === 'Boxen');
   const calendars = products.filter(p => p.category === 'Kalender');
@@ -79,14 +82,14 @@ export default function Home() {
               Viral <br />Sweets
             </h1>
             <p className="text-sm md:text-base text-white/70 mb-10 max-w-lg tracking-[0.2em] uppercase font-bold">
-              Geschenkboxen & Exklusive Spezialitäten. Direkt zu dir nach Hause.
+              {t('hero.description')}
             </p>
             <div className="flex gap-4">
               <Link
                 href="/products"
                 className="inline-block bg-white text-black px-12 py-5 rounded-full font-black text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-all duration-500 border-2 border-white"
               >
-                Shop All
+                {t('hero.cta')}
               </Link>
               <Link
                 href="/kalender"
@@ -114,11 +117,11 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-xl">
               <span className="text-xs font-black text-black/40 uppercase tracking-[0.3em] mb-4 block">Hype des Monats</span>
-              <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-4">Bestseller</h2>
-              <p className="text-gray-500 tracking-[0.1em] uppercase text-xs font-bold">Die beliebtesten Boxen & Sweets der Community</p>
+              <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-4">{t('bestseller.title')}</h2>
+              <p className="text-gray-500 tracking-[0.1em] uppercase text-xs font-bold">{t('bestseller.subtitle')}</p>
             </div>
             <Link href="/products" className="text-xs font-black uppercase tracking-widest border-b-2 border-black pb-1 hover:opacity-50 transition-opacity">
-              Alle ansehen
+              {t('bestseller.viewAll')}
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

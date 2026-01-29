@@ -1,0 +1,54 @@
+{
+    "HomePage": {
+        "hero": {
+            "trust": "Over 10,000 happy sweet lovers",
+            "headline": "No more boring snacks.",
+            "subheadline": "Experience sweets in a new way.",
+            "description": "Handpicked premium sweets that don't just taste good, but transport you to another world. At your door tomorrow.",
+            "cta": "Discover Now",
+            "rating": "4.9/5 on Trustpilot",
+            "shipping": "Express Shipping"
+        },
+        "trustBadges": {
+            "brands": "Famous Brands",
+            "brandsSub": "Only the Original",
+            "fresh": "Freshness Guarantee",
+            "freshSub": "New every day",
+            "payment": "Secure Payment",
+            "paymentSub": "PayPal, Klarna & Co",
+            "shipping": "Free Shipping",
+            "shippingSub": "Orders over 50€"
+        },
+        "usp": {
+            "title": "Why sweet lovers love us",
+            "subtitle": "No generic sweets. We curate moments that last.",
+            "qualityTitle": "Handpicked Quality",
+            "qualityDesc": "Nothing off the assembly line. Every piece is checked for taste and freshness.",
+            "shippingTitle": "Lightning Fast Shipping",
+            "shippingDesc": "Ordered today, enjoyed tomorrow. Because cravings can't wait.",
+            "giftTitle": "Spread Joy",
+            "giftDesc": "Perfectly wrapped as a gift. For yourself or your loved ones."
+        },
+        "bestseller": {
+            "title": "Our Bestsellers",
+            "subtitle": "What other customers love most",
+            "viewAll": "View all"
+        },
+        "trustSection": {
+            "shipping": "Express Shipping",
+            "shippingSub": "Free from 40€ order value",
+            "support": "24/7 Support",
+            "supportSub": "We are always here for you",
+            "selection": "Global Sweets",
+            "selectionSub": "Exclusive Selection & Trends",
+            "return": "Safe Returns",
+            "returnSub": "14 Days Return Policy"
+        }
+    },
+    "Navigation": {
+        "home": "Home",
+        "shop": "Shop",
+        "about": "About Us",
+        "cart": "Cart"
+    }
+}
